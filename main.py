@@ -1,4 +1,14 @@
-def linha():
+def separador():
+    print('*' * 50)
+
+
+def print_centralizado(txt):
+    print(f'{txt}'.center(50))
+
+
+def print_personalizado(txt):
+    print('*' * 50)
+    print_centralizado(txt)
     print('*' * 50)
 
 
@@ -8,11 +18,19 @@ def gerar_numero(txt='lul'):
 
 
 def adicionar_texto():
-    pass
+    separador()
+    append = str(input('Escreva o que deseja adicionar ao arquivo:\n'))
+    with open('main.txt', 'a') as arquivo:
+        arquivo.write(f'{append}\n')
+    print('Texto adicionado com sucesso')
 
 
 def ver_conteudo():
-    pass
+    separador()
+    with open('main.txt', 'r') as arquivo:
+        conteudo = arquivo.read()
+        print(conteudo)
+    input('Pressione enter para continuar...')
 
 
 def ver_conteudo_linha():
@@ -28,17 +46,16 @@ def deletar():
 
 
 # Main
-linha()
-print('BEM VINDO'.center(50))
+opcoes = ['1 - Adicionar texto', '2 - Ver conteudo do arquivo', '3 - Ver conteudo de uma linha especifica',
+          '4 - Procurar por sentenças', '5 - Deletar texto', '69 - Sair']
+separador()
+print_centralizado('BEM VINDO')
 while True:
-    linha()
+    separador()
     print('Selecione uma das opções')
-    print('''1 - Adicionar texto
-    2 - Ver conteudo do arquivo
-    3 - Ver conteudo de uma linha especifica
-    4 - Procurar por sentenças
-    5 - Deletar texto''')
-    linha()
+    for o in opcoes:
+        print(o)
+    separador()
     opcao = gerar_numero('Entrada: ')
     if opcao == 1:
         adicionar_texto()
@@ -51,7 +68,5 @@ while True:
     elif opcao == 5:
         deletar()
     elif opcao == 69:
+        print_personalizado('Até logo')
         break
-linha()
-print('Até logo'.center(50))
-linha()
