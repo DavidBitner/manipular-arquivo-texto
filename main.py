@@ -12,6 +12,10 @@ def print_personalizado(txt):
     print('*' * 50)
 
 
+def continuar():
+    input('Pressione enter para continuar...')
+
+
 def gerar_numero(txt='lul'):
     entrada = int(input(txt))
     return entrada
@@ -29,12 +33,41 @@ def ver_conteudo():
     separador()
     with open('main.txt', 'r') as arquivo:
         conteudo = arquivo.read()
-        print(conteudo)
-    input('Pressione enter para continuar...')
+    print(conteudo)
+    continuar()
 
 
 def ver_conteudo_linha():
-    pass
+    while True:
+        separador()
+        opcoes_vcl = ['1 - Selecionar linha especifica', '2 - Selecionar um intervalo de linhas', '69 - Voltar']
+        for o_vcl in opcoes_vcl:
+            print(o_vcl)
+        opcao_vcl = gerar_numero('Entrada: ')
+        if opcao_vcl == 1:
+            separador()
+            with open('main.txt', 'r') as arquivo:
+                linhas = arquivo.readlines()
+            print(f'O arquivo possui {len(linhas) + 1} linhas')
+            linha_selecionada = gerar_numero('Linha selecionada: ')
+            try:
+                print(linhas[linha_selecionada - 1])
+            except IndexError:
+                print_personalizado('Numero acima do limite de linhas do arquivo')
+            continuar()
+        elif opcao_vcl == 2:
+            separador()
+            with open('main.txt', 'r') as arquivo:
+                linhas = arquivo.readlines()
+            print(f'O arquivo possui {len(linhas) + 1} linhas')
+            primeira_linha = gerar_numero('Primeira linha: ')
+            ultima_linha = gerar_numero('Ultima linha: ')
+            for i in range(1, len(linhas) + 1):
+                if primeira_linha <= i <= ultima_linha:
+                    print(f'Linha {i}: {linhas[i - 1]}', end='')
+            continuar()
+        elif opcao_vcl == 69:
+            break
 
 
 def procurar():
