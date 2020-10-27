@@ -1,12 +1,12 @@
-Primeiro input
-Segundo input
-Terceiro input
+Primeiro
+Segundo 
+Terceiro 
 Quarto
 Quinto
 Sexto
-Sétimo
+Setimo
 Oitavo
 Nono
-Décimo
-Décimo Primeiro
-Decimo segundo input
+Decimo
+Decimo Primeiro
+Decimo segundo 
