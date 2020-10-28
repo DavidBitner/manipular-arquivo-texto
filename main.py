@@ -2,7 +2,7 @@ from modules.defs import separador, print_centralizado, gerar_numero, adicionar_
 from modules.defs import procurar, deletar, print_personalizado
 
 opcoes = ['1 - Adicionar texto', '2 - Ver conteudo do arquivo', '3 - Ver conteudo de uma linha especifica',
-          '4 - Procurar por sentenças', '5 - Deletar texto', '69 - Sair']
+          '4 - Procurar', '5 - Remover texto', '69 - Sair']
 separador()
 print_centralizado('BEM VINDO')
 while True:
