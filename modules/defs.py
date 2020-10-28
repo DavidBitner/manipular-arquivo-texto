@@ -71,7 +71,35 @@ def ver_conteudo_linha():
 
 
 def procurar():
-    pass
+    while True:
+        separador()
+        posicao_encontrada = []
+        entrada = str(input('Insira o que deseja procurar: '))
+        with open('main.txt', 'r') as arquivo:
+            linhas = arquivo.readlines()
+        for index, linha in enumerate(linhas):
+            if entrada in linha:
+                posicao_encontrada.append(index)
+        if len(posicao_encontrada) == 0:
+            print('Nada encontrado!')
+        elif len(posicao_encontrada) == 1:
+            print(f'Foi encontrado um resultado na sua busca!')
+            print(f'Resultado se encontra na linha {posicao_encontrada[0]}:')
+            print(f'{linhas[posicao_encontrada[0]]}')
+            continuar()
+        elif len(posicao_encontrada) > 1:
+            print(f'Foram encontrados {len(posicao_encontrada)} resultados')
+            for numero_linha in posicao_encontrada:
+                print(f'Linha {numero_linha}:')
+                print(f'{linhas[numero_linha]}')
+            continuar()
+        while True:
+            separador()
+            voltar = gerar_numero('1 - Realizar mais uma busca\n69 - Voltar\nEntrada: ')
+            if voltar == 1 or voltar == 69:
+                break
+        if voltar == 69:
+            break
 
 
 def deletar():
